@@ -1,0 +1,83 @@
+{
+  "common": {
+    "appName": "yaUMS",
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "create": "Crear",
+    "edit": "Editar",
+    "delete": "Eliminar",
+    "confirm": "¿Estás seguro?",
+    "actions": "Acciones",
+    "loading": "Cargando...",
+    "noResults": "Sin resultados.",
+    "page": "Página {{page}} de {{total}}",
+    "yes": "Sí",
+    "no": "No"
+  },
+  "nav": {
+    "home": "Inicio",
+    "users": "Usuarios",
+    "groups": "Grupos",
+    "roles": "Roles",
+    "permissions": "Permisos",
+    "auditLogs": "Registros de Auditoría",
+    "logout": "Cerrar sesión",
+    "collapse": "Contraer menú"
+  },
+  "auth": {
+    "title": "Iniciar sesión en yaUMS",
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "submit": "Entrar",
+    "error": "Correo electrónico o contraseña inválidos.",
+    "connectionError": "No se pudo conectar con el servidor. ¿El backend está en ejecución?"
+  },
+  "home": {
+    "welcome": "Bienvenido, {{name}}",
+    "roleLabel": "Tu rol: {{role}}"
+  },
+  "users": {
+    "title": "Usuarios",
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "firstName": "Nombre",
+    "lastName": "Apellido",
+    "role": "Rol",
+    "owner": "Owner",
+    "active": "Activo",
+    "confirmDelete": "¿Eliminar este usuario?",
+    "transferOwnership": "Transferir propiedad",
+    "targetUser": "Nuevo owner",
+    "currentPassword": "Tu contraseña actual"
+  },
+  "groups": {
+    "title": "Grupos",
+    "name": "Nombre",
+    "description": "Descripción",
+    "confirmDelete": "¿Eliminar este grupo?"
+  },
+  "roles": {
+    "title": "Roles",
+    "name": "Nombre",
+    "description": "Descripción",
+    "system": "Rol del sistema",
+    "confirmDelete": "¿Eliminar este rol?"
+  },
+  "permissions": {
+    "title": "Permisos",
+    "resource": "Recurso",
+    "action": "Acción",
+    "description": "Descripción",
+    "confirmDelete": "¿Eliminar este permiso?"
+  },
+  "auditLogs": {
+    "title": "Registros de Auditoría",
+    "actor": "Autor",
+    "entity": "Entidad",
+    "field": "Campo",
+    "oldValue": "Valor anterior",
+    "newValue": "Valor nuevo",
+    "action": "Acción",
+    "date": "Fecha"
+  }
+}

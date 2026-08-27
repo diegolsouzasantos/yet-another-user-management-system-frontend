@@ -1,0 +1,83 @@
+{
+  "common": {
+    "appName": "yaUMS",
+    "save": "Salvar",
+    "cancel": "Cancelar",
+    "create": "Criar",
+    "edit": "Editar",
+    "delete": "Excluir",
+    "confirm": "Tem certeza?",
+    "actions": "Ações",
+    "loading": "Carregando...",
+    "noResults": "Nenhum resultado.",
+    "page": "Página {{page}} de {{total}}",
+    "yes": "Sim",
+    "no": "Não"
+  },
+  "nav": {
+    "home": "Início",
+    "users": "Usuários",
+    "groups": "Grupos",
+    "roles": "Cargos",
+    "permissions": "Permissões",
+    "auditLogs": "Logs de Auditoria",
+    "logout": "Sair",
+    "collapse": "Recolher menu"
+  },
+  "auth": {
+    "title": "Entrar no yaUMS",
+    "email": "E-mail",
+    "password": "Senha",
+    "submit": "Entrar",
+    "error": "E-mail ou senha inválidos.",
+    "connectionError": "Não foi possível conectar ao servidor. O backend está rodando?"
+  },
+  "home": {
+    "welcome": "Bem-vindo, {{name}}",
+    "roleLabel": "Seu cargo: {{role}}"
+  },
+  "users": {
+    "title": "Usuários",
+    "email": "E-mail",
+    "password": "Senha",
+    "firstName": "Nome",
+    "lastName": "Sobrenome",
+    "role": "Cargo",
+    "owner": "Owner",
+    "active": "Ativo",
+    "confirmDelete": "Excluir este usuário?",
+    "transferOwnership": "Transferir propriedade",
+    "targetUser": "Novo owner",
+    "currentPassword": "Sua senha atual"
+  },
+  "groups": {
+    "title": "Grupos",
+    "name": "Nome",
+    "description": "Descrição",
+    "confirmDelete": "Excluir este grupo?"
+  },
+  "roles": {
+    "title": "Cargos",
+    "name": "Nome",
+    "description": "Descrição",
+    "system": "Cargo do sistema",
+    "confirmDelete": "Excluir este cargo?"
+  },
+  "permissions": {
+    "title": "Permissões",
+    "resource": "Recurso",
+    "action": "Ação",
+    "description": "Descrição",
+    "confirmDelete": "Excluir esta permissão?"
+  },
+  "auditLogs": {
+    "title": "Logs de Auditoria",
+    "actor": "Autor",
+    "entity": "Entidade",
+    "field": "Campo",
+    "oldValue": "Valor anterior",
+    "newValue": "Novo valor",
+    "action": "Ação",
+    "date": "Data"
+  }
+}

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>yaUMS — Roles</title>
+  <link rel="stylesheet" href="/assets/css/base.css" />
+  <link rel="stylesheet" href="/assets/css/layout.css" />
+  <link rel="stylesheet" href="/assets/css/sidebar.css" />
+  <link rel="stylesheet" href="/assets/css/buttons.css" />
+  <link rel="stylesheet" href="/assets/css/forms.css" />
+  <link rel="stylesheet" href="/assets/css/table.css" />
+  <link rel="stylesheet" href="/assets/css/toast.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="app-main">
+      <header class="navbar" id="navbar"></header>
+      <main class="page">
+        <div class="page-header">
+          <h1 data-i18n="roles.title"></h1>
+          <button id="create-btn" class="btn btn--primary" data-i18n="common.create"></button>
+        </div>
+        <table>
+          <thead><tr id="roles-table-head"></tr></thead>
+          <tbody id="roles-table-body"></tbody>
+        </table>
+        <div class="pagination" id="pagination"></div>
+      </main>
+    </div>
+  </div>
+  <dialog id="role-dialog">
+    <form id="role-form" method="dialog">
+      <div class="form-field"><label data-i18n="roles.name"></label><input name="name" required /></div>
+      <div class="form-field"><label data-i18n="roles.description"></label><input name="description" /></div>
+      <button type="submit" class="btn btn--primary" data-i18n="common.save"></button>
+      <button type="button" id="cancel-btn" class="btn" data-i18n="common.cancel"></button>
+    </form>
+  </dialog>
+  <script type="module" src="./roles.js"></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+{
+  "common": {
+    "appName": "yaUMS",
+    "save": "Save",
+    "cancel": "Cancel",
+    "create": "Create",
+    "edit": "Edit",
+    "delete": "Delete",
+    "confirm": "Are you sure?",
+    "actions": "Actions",
+    "loading": "Loading...",
+    "noResults": "No results.",
+    "page": "Page {{page}} of {{total}}",
+    "yes": "Yes",
+    "no": "No"
+  },
+  "nav": {
+    "home": "Home",
+    "users": "Users",
+    "groups": "Groups",
+    "roles": "Roles",
+    "permissions": "Permissions",
+    "auditLogs": "Audit Logs",
+    "logout": "Log out",
+    "collapse": "Collapse menu"
+  },
+  "auth": {
+    "title": "Sign in to yaUMS",
+    "email": "Email",
+    "password": "Password",
+    "submit": "Sign in",
+    "error": "Invalid email or password.",
+    "connectionError": "Could not reach the server. Is the backend running?"
+  },
+  "home": {
+    "welcome": "Welcome, {{name}}",
+    "roleLabel": "Your role: {{role}}"
+  },
+  "users": {
+    "title": "Users",
+    "email": "Email",
+    "password": "Password",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "role": "Role",
+    "owner": "Owner",
+    "active": "Active",
+    "confirmDelete": "Delete this user?",
+    "transferOwnership": "Transfer ownership",
+    "targetUser": "New owner",
+    "currentPassword": "Your current password"
+  },
+  "groups": {
+    "title": "Groups",
+    "name": "Name",
+    "description": "Description",
+    "confirmDelete": "Delete this group?"
+  },
+  "roles": {
+    "title": "Roles",
+    "name": "Name",
+    "description": "Description",
+    "system": "System role",
+    "confirmDelete": "Delete this role?"
+  },
+  "permissions": {
+    "title": "Permissions",
+    "resource": "Resource",
+    "action": "Action",
+    "description": "Description",
+    "confirmDelete": "Delete this permission?"
+  },
+  "auditLogs": {
+    "title": "Audit Logs",
+    "actor": "Actor",
+    "entity": "Entity",
+    "field": "Field",
+    "oldValue": "Old value",
+    "newValue": "New value",
+    "action": "Action",
+    "date": "Date"
+  }
+}

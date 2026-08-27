@@ -1,0 +1,20 @@
+.login-screen {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-card {
+  width: 320px;
+}
+
+.login-card h1 {
+  font-size: 1.25rem;
+}
+
+.login-error {
+  color: var(--color-danger);
+  font-size: 0.85rem;
+  min-height: 1.2rem;
+}
