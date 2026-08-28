@@ -16,6 +16,8 @@
   white-space: nowrap;
 }
 
+.sidebar__brand-link { color: var(--color-text); text-decoration: none; }
+
 .sidebar__toggle {
   border: none;
   background: none;
@@ -42,7 +44,7 @@
 .sidebar__link:hover { background: var(--color-bg); }
 .sidebar__link--active { background: var(--color-primary); color: #fff; }
 
-.sidebar--collapsed .sidebar__brand span,
+.sidebar--collapsed .sidebar__brand-link,
 .sidebar--collapsed .sidebar__link {
   display: none;
 }

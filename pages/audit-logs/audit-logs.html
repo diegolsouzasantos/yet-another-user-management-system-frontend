@@ -10,6 +10,9 @@
   <link rel="stylesheet" href="/assets/css/forms.css" />
   <link rel="stylesheet" href="/assets/css/table.css" />
   <link rel="stylesheet" href="/assets/css/toast.css" />
+  <link rel="stylesheet" href="/assets/css/loading.css" />
+  <link rel="stylesheet" href="/assets/css/theme.css" />
+  <script type="module">import { applyTheme } from '/js/theme/theme.js'; applyTheme();</script>
 </head>
 <body>
   <div class="app-shell">
@@ -21,17 +24,7 @@
           <h1 data-i18n="auditLogs.title"></h1>
         </div>
         <table>
-          <thead>
-            <tr>
-              <th data-i18n="auditLogs.actor"></th>
-              <th data-i18n="auditLogs.entity"></th>
-              <th data-i18n="auditLogs.action"></th>
-              <th data-i18n="auditLogs.field"></th>
-              <th data-i18n="auditLogs.oldValue"></th>
-              <th data-i18n="auditLogs.newValue"></th>
-              <th data-i18n="auditLogs.date"></th>
-            </tr>
-          </thead>
+          <thead><tr id="audit-logs-table-head"></tr></thead>
           <tbody id="audit-logs-table-body"></tbody>
         </table>
         <div class="pagination" id="pagination"></div>

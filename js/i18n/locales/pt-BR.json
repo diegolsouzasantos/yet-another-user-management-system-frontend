@@ -6,6 +6,9 @@
     "create": "Criar",
     "edit": "Editar",
     "delete": "Excluir",
+    "add": "Adicionar",
+    "remove": "Remover",
+    "back": "Voltar",
     "confirm": "Tem certeza?",
     "actions": "Ações",
     "loading": "Carregando...",
@@ -24,13 +27,28 @@
     "logout": "Sair",
     "collapse": "Recolher menu"
   },
+  "theme": {
+    "label": "Tema",
+    "system": "Sistema",
+    "light": "Claro",
+    "dark": "Escuro"
+  },
   "auth": {
     "title": "Entrar no yaUMS",
     "email": "E-mail",
     "password": "Senha",
     "submit": "Entrar",
     "error": "E-mail ou senha inválidos.",
-    "connectionError": "Não foi possível conectar ao servidor. O backend está rodando?"
+    "connectionError": "Não foi possível conectar ao servidor. O backend está rodando?",
+    "forgot": "Esqueceu sua senha?",
+    "forgotTitle": "Redefinir sua senha",
+    "forgotSubmit": "Enviar link de redefinição",
+    "forgotDone": "Se esse e-mail existir, um link de redefinição foi enviado. Verifique os logs do backend.",
+    "backToLogin": "Voltar para o login",
+    "resetTitle": "Escolha uma nova senha",
+    "newPassword": "Nova senha",
+    "resetSubmit": "Atualizar senha",
+    "resetDone": "Senha atualizada. Você já pode entrar."
   },
   "home": {
     "welcome": "Bem-vindo, {{name}}",
@@ -45,6 +63,8 @@
     "role": "Cargo",
     "owner": "Owner",
     "active": "Ativo",
+    "groups": "Grupos",
+    "permissions": "Permissões individuais",
     "confirmDelete": "Excluir este usuário?",
     "transferOwnership": "Transferir propriedade",
     "targetUser": "Novo owner",
@@ -54,13 +74,17 @@
     "title": "Grupos",
     "name": "Nome",
     "description": "Descrição",
+    "members": "Membros",
+    "permissions": "Permissões",
     "confirmDelete": "Excluir este grupo?"
   },
   "roles": {
     "title": "Cargos",
     "name": "Nome",
     "description": "Descrição",
+    "permissions": "Permissões",
     "system": "Cargo do sistema",
+    "readOnly": "Cargo do sistema — as permissões são somente leitura.",
     "confirmDelete": "Excluir este cargo?"
   },
   "permissions": {
@@ -68,7 +92,7 @@
     "resource": "Recurso",
     "action": "Ação",
     "description": "Descrição",
-    "confirmDelete": "Excluir esta permissão?"
+    "readOnly": "Catálogo somente leitura."
   },
   "auditLogs": {
     "title": "Logs de Auditoria",

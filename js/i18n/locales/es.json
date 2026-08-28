@@ -6,6 +6,9 @@
     "create": "Crear",
     "edit": "Editar",
     "delete": "Eliminar",
+    "add": "Añadir",
+    "remove": "Quitar",
+    "back": "Volver",
     "confirm": "¿Estás seguro?",
     "actions": "Acciones",
     "loading": "Cargando...",
@@ -24,13 +27,28 @@
     "logout": "Cerrar sesión",
     "collapse": "Contraer menú"
   },
+  "theme": {
+    "label": "Tema",
+    "system": "Sistema",
+    "light": "Claro",
+    "dark": "Oscuro"
+  },
   "auth": {
     "title": "Iniciar sesión en yaUMS",
     "email": "Correo electrónico",
     "password": "Contraseña",
     "submit": "Entrar",
     "error": "Correo electrónico o contraseña inválidos.",
-    "connectionError": "No se pudo conectar con el servidor. ¿El backend está en ejecución?"
+    "connectionError": "No se pudo conectar con el servidor. ¿El backend está en ejecución?",
+    "forgot": "¿Olvidaste tu contraseña?",
+    "forgotTitle": "Restablecer tu contraseña",
+    "forgotSubmit": "Enviar enlace de restablecimiento",
+    "forgotDone": "Si ese correo existe, se ha enviado un enlace de restablecimiento. Revisa los logs del backend.",
+    "backToLogin": "Volver al inicio de sesión",
+    "resetTitle": "Elige una nueva contraseña",
+    "newPassword": "Nueva contraseña",
+    "resetSubmit": "Actualizar contraseña",
+    "resetDone": "Contraseña actualizada. Ya puedes iniciar sesión."
   },
   "home": {
     "welcome": "Bienvenido, {{name}}",
@@ -45,6 +63,8 @@
     "role": "Rol",
     "owner": "Owner",
     "active": "Activo",
+    "groups": "Grupos",
+    "permissions": "Permisos individuales",
     "confirmDelete": "¿Eliminar este usuario?",
     "transferOwnership": "Transferir propiedad",
     "targetUser": "Nuevo owner",
@@ -54,13 +74,17 @@
     "title": "Grupos",
     "name": "Nombre",
     "description": "Descripción",
+    "members": "Miembros",
+    "permissions": "Permisos",
     "confirmDelete": "¿Eliminar este grupo?"
   },
   "roles": {
     "title": "Roles",
     "name": "Nombre",
     "description": "Descripción",
+    "permissions": "Permisos",
     "system": "Rol del sistema",
+    "readOnly": "Rol del sistema — los permisos son de solo lectura.",
     "confirmDelete": "¿Eliminar este rol?"
   },
   "permissions": {
@@ -68,7 +92,7 @@
     "resource": "Recurso",
     "action": "Acción",
     "description": "Descripción",
-    "confirmDelete": "¿Eliminar este permiso?"
+    "readOnly": "Catálogo de solo lectura."
   },
   "auditLogs": {
     "title": "Registros de Auditoría",

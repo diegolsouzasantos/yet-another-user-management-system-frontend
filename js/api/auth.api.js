@@ -11,3 +11,11 @@ export function me() {
 export function logout(refreshToken) {
   return request('/auth/logout', { method: 'POST', body: { refreshToken } });
 }
+
+export function requestPasswordReset(email) {
+  return request('/auth/forgot-password', { method: 'POST', body: { email } });
+}
+
+export function resetPassword(token, password) {
+  return request('/auth/reset-password', { method: 'POST', body: { token, password } });
+}

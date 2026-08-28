@@ -1,6 +1,12 @@
 import { createEl } from '../../js/utils/dom.js';
 import { t } from '../../js/i18n/i18n.js';
 
+export const ROLE_COLUMNS = [
+  { key: 'roles.name', field: 'name' },
+  { key: 'roles.description' },
+  { key: 'common.actions' },
+];
+
 function buildActions(role, { onEdit, onDelete }) {
   if (role.isSystemRole) {
     return createEl('span', { textContent: t('roles.system') });
@@ -14,8 +20,12 @@ function buildActions(role, { onEdit, onDelete }) {
 }
 
 function buildRow(role, actions) {
+  const link = createEl('a', {
+    href: `/pages/roles/role-detail.html?id=${role.id}`,
+    textContent: role.name,
+  });
   return createEl('tr', {}, [
-    createEl('td', { textContent: role.name }),
+    createEl('td', {}, [link]),
     createEl('td', { textContent: role.description || '' }),
     createEl('td', {}, [buildActions(role, actions)]),
   ]);

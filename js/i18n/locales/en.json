@@ -6,6 +6,9 @@
     "create": "Create",
     "edit": "Edit",
     "delete": "Delete",
+    "add": "Add",
+    "remove": "Remove",
+    "back": "Back",
     "confirm": "Are you sure?",
     "actions": "Actions",
     "loading": "Loading...",
@@ -24,13 +27,28 @@
     "logout": "Log out",
     "collapse": "Collapse menu"
   },
+  "theme": {
+    "label": "Theme",
+    "system": "System",
+    "light": "Light",
+    "dark": "Dark"
+  },
   "auth": {
     "title": "Sign in to yaUMS",
     "email": "Email",
     "password": "Password",
     "submit": "Sign in",
     "error": "Invalid email or password.",
-    "connectionError": "Could not reach the server. Is the backend running?"
+    "connectionError": "Could not reach the server. Is the backend running?",
+    "forgot": "Forgot your password?",
+    "forgotTitle": "Reset your password",
+    "forgotSubmit": "Send reset link",
+    "forgotDone": "If that email exists, a reset link has been sent. Check the backend logs.",
+    "backToLogin": "Back to sign in",
+    "resetTitle": "Choose a new password",
+    "newPassword": "New password",
+    "resetSubmit": "Update password",
+    "resetDone": "Password updated. You can now sign in."
   },
   "home": {
     "welcome": "Welcome, {{name}}",
@@ -45,6 +63,8 @@
     "role": "Role",
     "owner": "Owner",
     "active": "Active",
+    "groups": "Groups",
+    "permissions": "Individual permissions",
     "confirmDelete": "Delete this user?",
     "transferOwnership": "Transfer ownership",
     "targetUser": "New owner",
@@ -54,13 +74,17 @@
     "title": "Groups",
     "name": "Name",
     "description": "Description",
+    "members": "Members",
+    "permissions": "Permissions",
     "confirmDelete": "Delete this group?"
   },
   "roles": {
     "title": "Roles",
     "name": "Name",
     "description": "Description",
+    "permissions": "Permissions",
     "system": "System role",
+    "readOnly": "System role — permissions are read-only.",
     "confirmDelete": "Delete this role?"
   },
   "permissions": {
@@ -68,7 +92,7 @@
     "resource": "Resource",
     "action": "Action",
     "description": "Description",
-    "confirmDelete": "Delete this permission?"
+    "readOnly": "Read-only catalogue."
   },
   "auditLogs": {
     "title": "Audit Logs",

@@ -1,0 +1,40 @@
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 0.9rem;
+}
+
+input,
+select {
+  font: inherit;
+  color: var(--color-text);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 0.5rem 0.6rem;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+select {
+  cursor: pointer;
+}
+
+input:hover,
+select:hover {
+  border-color: var(--color-primary);
+}
+
+input:focus-visible,
+select:focus-visible {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) 25%, transparent);
+}
+
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+}

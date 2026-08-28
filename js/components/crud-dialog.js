@@ -1,4 +1,5 @@
 import { showToast } from './toast.js';
+import { withLoading } from './loading.js';
 import { t } from '../i18n/i18n.js';
 
 export function initCrudDialog({
@@ -18,7 +19,12 @@ export function initCrudDialog({
   form().addEventListener('submit', async (event) => {
     event.preventDefault();
     const data = read(form());
-    if (editingId) await updateFn(editingId, data); else await createFn(data);
+    try {
+      await withLoading(editingId ? updateFn(editingId, data) : createFn(data));
+    } catch (error) {
+      showToast(error.message, 'error');
+      return;
+    }
     dialog().close();
     showToast(t('common.save'));
     onSaved();

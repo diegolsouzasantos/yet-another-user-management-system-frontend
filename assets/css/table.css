@@ -11,6 +11,23 @@ th, td {
   font-size: 0.9rem;
 }
 
+th.th--sortable {
+  cursor: pointer;
+  user-select: none;
+}
+
+th.th--sortable:hover {
+  color: var(--color-primary);
+}
+
+tbody tr {
+  transition: background-color var(--transition);
+}
+
+tbody tr:hover {
+  background: var(--color-bg);
+}
+
 .page-header {
   display: flex;
   align-items: center;

@@ -2,13 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>yaUMS — Permissions</title>
+  <title>yaUMS — Group</title>
   <link rel="stylesheet" href="/assets/css/base.css" />
   <link rel="stylesheet" href="/assets/css/layout.css" />
   <link rel="stylesheet" href="/assets/css/sidebar.css" />
   <link rel="stylesheet" href="/assets/css/buttons.css" />
   <link rel="stylesheet" href="/assets/css/forms.css" />
   <link rel="stylesheet" href="/assets/css/table.css" />
+  <link rel="stylesheet" href="/assets/css/toast.css" />
   <link rel="stylesheet" href="/assets/css/detail.css" />
   <link rel="stylesheet" href="/assets/css/loading.css" />
   <link rel="stylesheet" href="/assets/css/theme.css" />
@@ -20,18 +21,22 @@
     <div class="app-main">
       <header class="navbar" id="navbar"></header>
       <main class="page">
-        <div class="page-header">
-          <h1 data-i18n="permissions.title"></h1>
-          <p class="detail-empty" data-i18n="permissions.readOnly"></p>
-        </div>
-        <table>
-          <thead><tr id="permissions-table-head"></tr></thead>
-          <tbody id="permissions-table-body"></tbody>
-        </table>
-        <div class="pagination" id="pagination"></div>
+        <a href="/pages/groups/groups.html" data-i18n="common.back"></a>
+        <h1 id="detail-title"></h1>
+        <p id="detail-sub" class="detail-empty"></p>
+        <section class="detail-section">
+          <h2 data-i18n="groups.members"></h2>
+          <ul class="relation-list" id="users-list"></ul>
+          <div class="relation-add" id="users-add"></div>
+        </section>
+        <section class="detail-section">
+          <h2 data-i18n="groups.permissions"></h2>
+          <ul class="relation-list" id="perms-list"></ul>
+          <div class="relation-add" id="perms-add"></div>
+        </section>
       </main>
     </div>
   </div>
-  <script type="module" src="./permissions.js"></script>
+  <script type="module" src="./group-detail.js"></script>
 </body>
 </html>

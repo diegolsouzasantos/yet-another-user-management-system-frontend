@@ -11,6 +11,8 @@
   --radius: 8px;
   --sidebar-width: 220px;
   --sidebar-width-collapsed: 64px;
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --transition: 150ms var(--ease);
 }
 
 * {
