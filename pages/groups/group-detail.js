@@ -1,5 +1,6 @@
 import { mountShell } from '../../js/components/shell.js';
 import { applyI18n } from '../../js/i18n/i18n.js';
+import { tData } from '../../js/i18n/data-i18n.js';
 import { wireRelation } from '../../js/components/detail-relations.js';
 import { withLoading } from '../../js/components/loading.js';
 import * as groups from '../../js/api/groups.api.js';
@@ -9,7 +10,7 @@ import { listPermissions } from '../../js/api/permissions.api.js';
 const id = new URLSearchParams(window.location.search).get('id');
 const byId = (name) => document.getElementById(name);
 const userLabel = (user) => `${user.firstName} ${user.lastName}`;
-const permLabel = (permission) => `${permission.resource}:${permission.action}`;
+const permLabel = (permission) => `${tData('resources', permission.resource)}:${tData('actions', permission.action)}`;
 
 async function load() {
   const [{ group }, userList, permissionList] = await withLoading(Promise.all([
@@ -20,13 +21,13 @@ async function load() {
 
   wireRelation({
     listEl: byId('users-list'), addEl: byId('users-add'), owned: group.users, catalog: userList.users,
-    label: userLabel, reload: load,
-    add: (userId) => groups.addGroupUser(id, userId), remove: (userId) => groups.removeGroupUser(id, userId),
+    label: userLabel, reload: load, addTitleKey: 'relations.addUsers',
+    add: (userIds) => groups.addGroupUsers(id, userIds), remove: (userId) => groups.removeGroupUser(id, userId),
   });
   wireRelation({
     listEl: byId('perms-list'), addEl: byId('perms-add'), owned: group.permissions, catalog: permissionList.permissions,
-    label: permLabel, reload: load,
-    add: (permId) => groups.grantGroupPermission(id, permId), remove: (permId) => groups.revokeGroupPermission(id, permId),
+    label: permLabel, reload: load, addTitleKey: 'relations.addPermissions',
+    add: (permIds) => groups.grantGroupPermissions(id, permIds), remove: (permId) => groups.revokeGroupPermission(id, permId),
   });
 }
 

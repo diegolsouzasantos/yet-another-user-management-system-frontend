@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>yaUMS — Design System</title>
+  <link rel="stylesheet" href="/assets/css/base.css" />
+  <link rel="stylesheet" href="/assets/css/buttons.css" />
+  <link rel="stylesheet" href="/assets/css/forms.css" />
+  <link rel="stylesheet" href="/assets/css/theme.css" />
+  <link rel="stylesheet" href="/design-system/design-system.css" />
+  <script type="module">import { applyTheme } from '/js/theme/theme.js'; applyTheme();</script>
+  <style>
+    body { padding: 2rem; max-width: 900px; margin: 0 auto; }
+    section { margin-bottom: 2.5rem; }
+    h2 { border-bottom: 1px solid var(--color-border); padding-bottom: 0.35rem; }
+    .grid { display: flex; flex-wrap: wrap; gap: 1rem; }
+    .swatch { width: 120px; }
+    .swatch__box { height: 44px; border-radius: var(--radius); border: 1px solid var(--color-border); }
+    .icon-cell { display: flex; flex-direction: column; align-items: center; gap: 0.35rem; width: 80px; font-size: 0.72rem; color: var(--color-text-muted); }
+    .token-row { display: flex; align-items: center; gap: 0.75rem; font-size: 0.85rem; margin-bottom: 0.3rem; }
+    .token-row .bar { height: 12px; background: var(--color-primary); border-radius: 3px; }
+  </style>
+</head>
+<body>
+  <h1>yaUMS Design System</h1>
+  <p class="detail-empty">Living reference for tokens, icons and interaction components. See <code>design-system/README.md</code>.</p>
+
+  <section>
+    <h2>Colour tokens</h2>
+    <div class="grid" id="colors"></div>
+  </section>
+
+  <section>
+    <h2>Spacing scale</h2>
+    <div id="spacing"></div>
+  </section>
+
+  <section>
+    <h2>Icons</h2>
+    <div class="grid" id="icons"></div>
+  </section>
+
+  <section>
+    <h2>Buttons — icon + label</h2>
+    <div class="grid" id="buttons"></div>
+  </section>
+
+  <section>
+    <h2>Row actions menu</h2>
+    <p class="detail-empty">Ellipsis trigger opens a menu; each item is icon + label.</p>
+    <button class="ds-icon-btn" id="menu-demo" aria-label="Actions"></button>
+  </section>
+
+  <section>
+    <h2>Modal confirm</h2>
+    <button class="btn" id="modal-demo">Open confirm modal</button>
+  </section>
+
+  <section>
+    <h2>Permission origin badges</h2>
+    <span class="ds-badge ds-badge--role">Role</span>
+    <span class="ds-badge ds-badge--group">Group</span>
+    <span class="ds-badge ds-badge--direct">Direct</span>
+  </section>
+
+  <script type="module">
+    import { iconNames, iconEl } from '/design-system/icons.js';
+    import { attachMenu } from '/design-system/menu.js';
+    import { confirmModal } from '/design-system/modal.js';
+
+    const COLORS = ['--color-bg', '--color-surface', '--color-border', '--color-text', '--color-text-muted', '--color-primary', '--color-primary-dark', '--color-danger', '--color-success'];
+    const colorsEl = document.getElementById('colors');
+    COLORS.forEach((name) => {
+      const box = document.createElement('div');
+      box.className = 'swatch__box';
+      box.style.background = `var(${name})`;
+      const label = document.createElement('div');
+      label.textContent = name;
+      label.style.fontSize = '0.72rem';
+      label.style.marginTop = '0.3rem';
+      const cell = document.createElement('div');
+      cell.className = 'swatch';
+      cell.append(box, label);
+      colorsEl.append(cell);
+    });
+
+    const spacingEl = document.getElementById('spacing');
+    ['--space-1', '--space-2', '--space-3', '--space-4', '--space-5', '--space-6'].forEach((name) => {
+      const row = document.createElement('div');
+      row.className = 'token-row';
+      const bar = document.createElement('span');
+      bar.className = 'bar';
+      bar.style.width = `var(${name})`;
+      const label = document.createElement('span');
+      label.textContent = name;
+      row.append(bar, label);
+      spacingEl.append(row);
+    });
+
+    const iconsEl = document.getElementById('icons');
+    iconNames().forEach((name) => {
+      const cell = document.createElement('div');
+      cell.className = 'icon-cell';
+      cell.append(iconEl(name, { size: 24 }));
+      const label = document.createElement('span');
+      label.textContent = name;
+      cell.append(label);
+      iconsEl.append(cell);
+    });
+
+    const buttonsEl = document.getElementById('buttons');
+    [['btn btn--primary', 'plus', 'Create'], ['btn', 'pencil', 'Edit'], ['btn btn--danger', 'trash', 'Delete']].forEach(([cls, icon, text]) => {
+      const b = document.createElement('button');
+      b.className = cls;
+      b.append(iconEl(icon, { size: 16 }));
+      const s = document.createElement('span');
+      s.textContent = text;
+      b.append(s);
+      buttonsEl.append(b);
+    });
+
+    const menuTrigger = document.getElementById('menu-demo');
+    menuTrigger.append(iconEl('ellipsis', { size: 18 }));
+    attachMenu(menuTrigger, [
+      { label: 'Edit', icon: 'pencil', onSelect: () => alert('edit') },
+      { label: 'Delete', icon: 'trash', variant: 'danger', onSelect: () => alert('delete') },
+    ]);
+
+    document.getElementById('modal-demo').addEventListener('click', async () => {
+      const ok = await confirmModal({
+        title: 'Delete this record?',
+        message: 'This cannot be undone from the UI.',
+        confirmLabel: 'Delete',
+        cancelLabel: 'Keep',
+        variant: 'danger',
+      });
+      alert(ok ? 'confirmed' : 'cancelled');
+    });
+  </script>
+</body>
+</html>

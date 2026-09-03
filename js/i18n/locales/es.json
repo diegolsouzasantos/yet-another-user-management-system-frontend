@@ -9,13 +9,82 @@
     "add": "Añadir",
     "remove": "Quitar",
     "back": "Volver",
+    "continue": "Continuar",
     "confirm": "¿Estás seguro?",
+    "confirmDeleteTitle": "¿Eliminar este registro?",
     "actions": "Acciones",
     "loading": "Cargando...",
     "noResults": "Sin resultados.",
     "page": "Página {{page}} de {{total}}",
     "yes": "Sí",
-    "no": "No"
+    "no": "No",
+    "createdAt": "Creado",
+    "updatedAt": "Actualizado",
+    "saved": "Guardado",
+    "created": "Creado",
+    "updated": "Actualizado",
+    "deleted": "Eliminado",
+    "removed": "Quitado",
+    "added": "Añadido"
+  },
+  "list": {
+    "perPage": "por página",
+    "selectedCount": "{{count}} seleccionado(s)",
+    "exportCsv": "Exportar CSV",
+    "exportDone": "Exportación descargada.",
+    "exportEmailed": "Exportación enviada a {{email}} (revisa los logs del backend).",
+    "deleteSelected": "Eliminar",
+    "deleteSelectedTitle": "¿Eliminar los registros seleccionados?",
+    "deleteSelectedMessage": "Se eliminarán {{count}} registro(s).",
+    "bulkDeletePartial": "{{removed}} eliminado(s), {{skipped}} omitido(s)."
+  },
+  "picker": {
+    "search": "Buscar…",
+    "selected": "{{count}} seleccionado(s)"
+  },
+  "relations": {
+    "addUsers": "Añadir usuarios",
+    "addGroups": "Añadir grupos",
+    "addPermissions": "Añadir permisos",
+    "removeTitle": "¿Quitar este elemento?",
+    "removeMessage": "{{name}} se quitará de este registro."
+  },
+  "validation": {
+    "required": "Este campo es obligatorio.",
+    "emailInvalid": "Introduce un correo electrónico válido.",
+    "passwordShort": "Usa al menos 8 caracteres.",
+    "passwordSpecial": "Incluye al menos un carácter especial."
+  },
+  "systemRoles": {
+    "Administrator": "Administrador",
+    "Contributor": "Colaborador",
+    "Reader": "Lector"
+  },
+  "resources": {
+    "users": "Usuarios",
+    "groups": "Grupos",
+    "roles": "Roles",
+    "permissions": "Permisos",
+    "audit-logs": "Registros de Auditoría"
+  },
+  "actions": {
+    "read": "leer",
+    "create": "crear",
+    "update": "actualizar",
+    "delete": "eliminar",
+    "grant": "conceder",
+    "revoke": "revocar"
+  },
+  "auditEntities": {
+    "User": "Usuario",
+    "Group": "Grupo",
+    "Role": "Rol",
+    "Permission": "Permiso"
+  },
+  "auditActions": {
+    "created": "creado",
+    "updated": "actualizado",
+    "deleted": "eliminado"
   },
   "nav": {
     "home": "Inicio",
@@ -25,7 +94,12 @@
     "permissions": "Permisos",
     "auditLogs": "Registros de Auditoría",
     "logout": "Cerrar sesión",
-    "collapse": "Contraer menú"
+    "collapse": "Contraer menú",
+    "profile": "Perfil",
+    "language": "Idioma"
+  },
+  "prefs": {
+    "title": "Preferencias"
   },
   "theme": {
     "label": "Tema",
@@ -63,12 +137,31 @@
     "role": "Rol",
     "owner": "Owner",
     "active": "Activo",
+    "inactive": "Inactivo",
+    "status": "Estado",
+    "overview": "Resumen",
     "groups": "Grupos",
-    "permissions": "Permisos individuales",
+    "permissions": "Permisos",
+    "permission": "Permiso",
+    "permissionsSource": "Origen",
+    "roleGrantsAll": "Este rol concede todos los permisos.",
+    "updatedAt": "Actualizado",
+    "deletedAt": "Eliminado",
     "confirmDelete": "¿Eliminar este usuario?",
     "transferOwnership": "Transferir propiedad",
+    "transferConfirmTitle": "¿Transferir la propiedad de la cuenta?",
+    "transferConfirmMessage": "{{name}} pasará a ser el owner de la cuenta. Una vez transferida, solo el nuevo owner puede devolver la propiedad.",
+    "transferPasswordTitle": "Confirma con tu contraseña",
+    "transferPasswordMessage": "Introduce tu contraseña actual para completar la transferencia.",
+    "transferDone": "Propiedad transferida.",
+    "transferNoCandidates": "No hay otro Administrador activo para recibir la transferencia.",
     "targetUser": "Nuevo owner",
-    "currentPassword": "Tu contraseña actual"
+    "currentPassword": "Tu contraseña actual",
+    "source": {
+      "role": "Rol",
+      "group": "Grupo",
+      "direct": "Directa"
+    }
   },
   "groups": {
     "title": "Grupos",
@@ -91,8 +184,7 @@
     "title": "Permisos",
     "resource": "Recurso",
     "action": "Acción",
-    "description": "Descripción",
-    "readOnly": "Catálogo de solo lectura."
+    "description": "Descripción"
   },
   "auditLogs": {
     "title": "Registros de Auditoría",
@@ -103,5 +195,31 @@
     "newValue": "Valor nuevo",
     "action": "Acción",
     "date": "Fecha"
+  },
+  "filters": {
+    "add": "Añadir filtro",
+    "apply": "Aplicar",
+    "cancel": "Cancelar",
+    "clearAll": "Limpiar todo",
+    "fieldPlaceholder": "Selecciona un campo",
+    "valuePlaceholder": "Selecciona un valor",
+    "value": "Valor",
+    "from": "Desde",
+    "to": "Hasta",
+    "op": {
+      "eq": "es",
+      "neq": "no es",
+      "contains": "contiene",
+      "startsWith": "empieza con",
+      "endsWith": "termina con",
+      "in": "es alguno de",
+      "isTrue": "es sí",
+      "isFalse": "es no",
+      "gt": "mayor que",
+      "gte": "mayor o igual",
+      "lt": "menor que",
+      "lte": "menor o igual",
+      "between": "entre"
+    }
   }
 }

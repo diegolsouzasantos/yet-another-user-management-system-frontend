@@ -9,13 +9,82 @@
     "add": "Add",
     "remove": "Remove",
     "back": "Back",
+    "continue": "Continue",
     "confirm": "Are you sure?",
+    "confirmDeleteTitle": "Delete this record?",
     "actions": "Actions",
     "loading": "Loading...",
     "noResults": "No results.",
     "page": "Page {{page}} of {{total}}",
     "yes": "Yes",
-    "no": "No"
+    "no": "No",
+    "createdAt": "Created",
+    "updatedAt": "Updated",
+    "saved": "Saved",
+    "created": "Created",
+    "updated": "Updated",
+    "deleted": "Deleted",
+    "removed": "Removed",
+    "added": "Added"
+  },
+  "list": {
+    "perPage": "per page",
+    "selectedCount": "{{count}} selected",
+    "exportCsv": "Export CSV",
+    "exportDone": "Export downloaded.",
+    "exportEmailed": "Export sent to {{email}} (check the backend logs).",
+    "deleteSelected": "Delete",
+    "deleteSelectedTitle": "Delete selected records?",
+    "deleteSelectedMessage": "{{count}} record(s) will be deleted.",
+    "bulkDeletePartial": "{{removed}} deleted, {{skipped}} skipped."
+  },
+  "picker": {
+    "search": "Search…",
+    "selected": "{{count}} selected"
+  },
+  "relations": {
+    "addUsers": "Add users",
+    "addGroups": "Add groups",
+    "addPermissions": "Add permissions",
+    "removeTitle": "Remove this item?",
+    "removeMessage": "{{name}} will be removed from this record."
+  },
+  "validation": {
+    "required": "This field is required.",
+    "emailInvalid": "Enter a valid email address.",
+    "passwordShort": "Use at least 8 characters.",
+    "passwordSpecial": "Include at least one special character."
+  },
+  "systemRoles": {
+    "Administrator": "Administrator",
+    "Contributor": "Contributor",
+    "Reader": "Reader"
+  },
+  "resources": {
+    "users": "Users",
+    "groups": "Groups",
+    "roles": "Roles",
+    "permissions": "Permissions",
+    "audit-logs": "Audit Logs"
+  },
+  "actions": {
+    "read": "read",
+    "create": "create",
+    "update": "update",
+    "delete": "delete",
+    "grant": "grant",
+    "revoke": "revoke"
+  },
+  "auditEntities": {
+    "User": "User",
+    "Group": "Group",
+    "Role": "Role",
+    "Permission": "Permission"
+  },
+  "auditActions": {
+    "created": "created",
+    "updated": "updated",
+    "deleted": "deleted"
   },
   "nav": {
     "home": "Home",
@@ -25,7 +94,12 @@
     "permissions": "Permissions",
     "auditLogs": "Audit Logs",
     "logout": "Log out",
-    "collapse": "Collapse menu"
+    "collapse": "Collapse menu",
+    "profile": "Profile",
+    "language": "Language"
+  },
+  "prefs": {
+    "title": "Preferences"
   },
   "theme": {
     "label": "Theme",
@@ -63,12 +137,31 @@
     "role": "Role",
     "owner": "Owner",
     "active": "Active",
+    "inactive": "Inactive",
+    "status": "Status",
+    "overview": "Overview",
     "groups": "Groups",
-    "permissions": "Individual permissions",
+    "permissions": "Permissions",
+    "permission": "Permission",
+    "permissionsSource": "Source",
+    "roleGrantsAll": "This role grants every permission.",
+    "updatedAt": "Updated",
+    "deletedAt": "Deleted",
     "confirmDelete": "Delete this user?",
     "transferOwnership": "Transfer ownership",
+    "transferConfirmTitle": "Transfer account ownership?",
+    "transferConfirmMessage": "{{name}} will become the account owner. Once transferred, only the new owner can transfer ownership back.",
+    "transferPasswordTitle": "Confirm with your password",
+    "transferPasswordMessage": "Enter your current password to complete the transfer.",
+    "transferDone": "Ownership transferred.",
+    "transferNoCandidates": "There is no other active Administrator to transfer to.",
     "targetUser": "New owner",
-    "currentPassword": "Your current password"
+    "currentPassword": "Your current password",
+    "source": {
+      "role": "Role",
+      "group": "Group",
+      "direct": "Direct"
+    }
   },
   "groups": {
     "title": "Groups",
@@ -91,8 +184,7 @@
     "title": "Permissions",
     "resource": "Resource",
     "action": "Action",
-    "description": "Description",
-    "readOnly": "Read-only catalogue."
+    "description": "Description"
   },
   "auditLogs": {
     "title": "Audit Logs",
@@ -103,5 +195,31 @@
     "newValue": "New value",
     "action": "Action",
     "date": "Date"
+  },
+  "filters": {
+    "add": "Add filter",
+    "apply": "Apply",
+    "cancel": "Cancel",
+    "clearAll": "Clear all",
+    "fieldPlaceholder": "Select a field",
+    "valuePlaceholder": "Select a value",
+    "value": "Value",
+    "from": "From",
+    "to": "To",
+    "op": {
+      "eq": "is",
+      "neq": "is not",
+      "contains": "contains",
+      "startsWith": "starts with",
+      "endsWith": "ends with",
+      "in": "is any of",
+      "isTrue": "is yes",
+      "isFalse": "is no",
+      "gt": "greater than",
+      "gte": "greater or equal",
+      "lt": "less than",
+      "lte": "less or equal",
+      "between": "between"
+    }
   }
 }

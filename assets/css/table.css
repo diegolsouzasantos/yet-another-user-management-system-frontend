@@ -16,6 +16,12 @@ th.th--sortable {
   user-select: none;
 }
 
+td.cell-actions {
+  width: 1%;
+  white-space: nowrap;
+  text-align: right;
+}
+
 th.th--sortable:hover {
   color: var(--color-primary);
 }

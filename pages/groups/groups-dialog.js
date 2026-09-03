@@ -1,4 +1,5 @@
 import { initCrudDialog } from '../../js/components/crud-dialog.js';
+import { validators } from '../../js/utils/form-validation.js';
 import { fillGroupForm, readGroupForm } from './groups-form.render.js';
 import { createGroup, updateGroup } from '../../js/api/groups.api.js';
 
@@ -13,5 +14,6 @@ export function initGroupDialog(onSaved) {
     fill: fillGroupForm,
     read: readGroupForm,
     onSaved,
+    validationRules: { name: validators.requiredText },
   });
 }

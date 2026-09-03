@@ -1,5 +1,7 @@
+import { tData } from '../../js/i18n/data-i18n.js';
+
 export function fillRoleOptions(selectEl, roles) {
-  selectEl.replaceChildren(...roles.map((role) => new Option(role.name, role.id)));
+  selectEl.replaceChildren(...roles.map((role) => new Option(tData('systemRoles', role.name), role.id)));
 }
 
 export function fillUserForm(formEl, user) {

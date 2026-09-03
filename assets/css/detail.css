@@ -2,6 +2,30 @@
   margin-top: 1.5rem;
 }
 
+a.detail-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.85rem;
+  margin-bottom: 0.75rem;
+}
+
+.detail-meta {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.4rem 1.25rem;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.detail-meta dt {
+  color: var(--color-text-muted);
+}
+
+.detail-meta dd {
+  margin: 0;
+}
+
 .relation-list {
   list-style: none;
   padding: 0;
@@ -25,8 +49,45 @@
 
 .relation-add {
   display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.relation-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.relation-picker__list {
+  max-height: 320px;
+  overflow-y: auto;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 0.3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.relation-picker__row {
+  display: flex;
   align-items: center;
   gap: 0.5rem;
+  padding: 0.4rem 0.45rem;
+  border-radius: calc(var(--radius) - 2px);
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.relation-picker__row:hover {
+  background: var(--color-bg);
+}
+
+.relation-picker__count {
+  margin: 0;
 }
 
 .relation-list li {

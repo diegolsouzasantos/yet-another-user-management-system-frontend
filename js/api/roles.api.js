@@ -9,8 +9,8 @@ export const createRole = base.create;
 export const updateRole = base.update;
 export const removeRole = base.remove;
 
-export const grantRolePermission = (id, permissionId) => (
-  request(`/roles/${id}/permissions`, { method: 'POST', body: { permissionId } })
+export const grantRolePermissions = (id, permissionIds) => (
+  request(`/roles/${id}/permissions`, { method: 'POST', body: { permissionIds } })
 );
 export const revokeRolePermission = (id, permissionId) => (
   request(`/roles/${id}/permissions/${permissionId}`, { method: 'DELETE' })

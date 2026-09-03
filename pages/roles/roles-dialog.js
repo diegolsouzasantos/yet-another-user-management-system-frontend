@@ -1,4 +1,5 @@
 import { initCrudDialog } from '../../js/components/crud-dialog.js';
+import { validators } from '../../js/utils/form-validation.js';
 import { fillRoleForm, readRoleForm } from './roles-form.render.js';
 import { createRole, updateRole } from '../../js/api/roles.api.js';
 
@@ -13,5 +14,6 @@ export function initRoleDialog(onSaved) {
     fill: fillRoleForm,
     read: readRoleForm,
     onSaved,
+    validationRules: { name: validators.requiredText },
   });
 }

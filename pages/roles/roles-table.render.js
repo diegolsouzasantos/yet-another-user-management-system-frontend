@@ -1,33 +1,45 @@
 import { createEl } from '../../js/utils/dom.js';
 import { t } from '../../js/i18n/i18n.js';
+import { tData } from '../../js/i18n/data-i18n.js';
+import { formatDateOnly } from '../../js/utils/format-date.js';
+import { rowActionsCell } from '../../js/components/action-buttons.js';
 
 export const ROLE_COLUMNS = [
   { key: 'roles.name', field: 'name' },
   { key: 'roles.description' },
+  { key: 'common.createdAt', field: 'createdAt' },
+  { key: 'common.updatedAt', field: 'updatedAt' },
   { key: 'common.actions' },
 ];
 
-function buildActions(role, { onEdit, onDelete }) {
-  if (role.isSystemRole) {
-    return createEl('span', { textContent: t('roles.system') });
-  }
+export const ROLE_FILTER_FIELDS = [
+  { field: 'name', labelKey: 'roles.name', type: 'text' },
+  { field: 'description', labelKey: 'roles.description', type: 'text' },
+  { field: 'isSystemRole', labelKey: 'roles.system', type: 'boolean' },
+  { field: 'createdAt', labelKey: 'common.createdAt', type: 'date' },
+];
 
-  const editBtn = createEl('button', { className: 'btn', textContent: t('common.edit') });
-  const deleteBtn = createEl('button', { className: 'btn btn--danger', textContent: t('common.delete') });
-  editBtn.addEventListener('click', () => onEdit(role));
-  deleteBtn.addEventListener('click', () => onDelete(role));
-  return createEl('span', {}, [editBtn, deleteBtn]);
-}
-
-function buildRow(role, actions) {
+function buildRow(role, { onEdit, onDelete }) {
   const link = createEl('a', {
     href: `/pages/roles/role-detail.html?id=${role.id}`,
-    textContent: role.name,
+    textContent: tData('systemRoles', role.name),
   });
+
+  const actionsCell = role.isSystemRole
+    ? createEl('td', { className: 'cell-actions' }, [
+      createEl('span', { className: 'detail-empty', textContent: t('roles.system') }),
+    ])
+    : rowActionsCell([
+      { labelKey: 'common.edit', icon: 'pencil', onSelect: () => onEdit(role) },
+      { labelKey: 'common.delete', icon: 'trash', variant: 'danger', onSelect: () => onDelete(role) },
+    ]);
+
   return createEl('tr', {}, [
     createEl('td', {}, [link]),
     createEl('td', { textContent: role.description || '' }),
-    createEl('td', {}, [buildActions(role, actions)]),
+    createEl('td', { textContent: formatDateOnly(role.createdAt) }),
+    createEl('td', { textContent: formatDateOnly(role.updatedAt) }),
+    actionsCell,
   ]);
 }
 

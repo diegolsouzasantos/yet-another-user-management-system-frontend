@@ -1,5 +1,13 @@
 import { createEl } from '../utils/dom.js';
 import { t } from '../i18n/i18n.js';
+import { iconEl } from '/design-system/icons.js';
+import { openRelationPicker } from './relation-picker.js';
+
+function labelledButton(iconName, labelKey, className) {
+  const button = createEl('button', { className, type: 'button' });
+  button.append(iconEl(iconName, { size: 16 }), createEl('span', { textContent: t(labelKey) }));
+  return button;
+}
 
 export function renderRelationList(listEl, items, { label, onRemove, readOnly }) {
   if (!items.length) {
@@ -10,7 +18,7 @@ export function renderRelationList(listEl, items, { label, onRemove, readOnly })
   listEl.replaceChildren(...items.map((item) => {
     const row = createEl('li', {}, [createEl('span', { textContent: label(item) })]);
     if (!readOnly) {
-      const button = createEl('button', { className: 'btn btn--danger', textContent: t('common.remove') });
+      const button = labelledButton('trash', 'common.remove', 'btn btn--sm btn--danger');
       button.addEventListener('click', () => onRemove(item));
       row.append(button);
     }
@@ -18,26 +26,20 @@ export function renderRelationList(listEl, items, { label, onRemove, readOnly })
   }));
 }
 
-function pickerNodes(options, label, onAdd, reset) {
-  const select = createEl('select');
-  options.forEach((option) => select.add(new Option(label(option), option.id)));
-  const confirm = createEl('button', { className: 'btn btn--primary', textContent: t('common.add') });
-  const cancel = createEl('button', { className: 'btn', textContent: t('common.cancel') });
-  confirm.addEventListener('click', () => select.value && onAdd(select.value));
-  cancel.addEventListener('click', reset);
-  return [select, confirm, cancel];
-}
-
-export function renderAddControl(containerEl, options, { label, onAdd, readOnly }) {
+export function renderAddControl(containerEl, options, {
+  label, onAdd, readOnly, pickerTitle,
+}) {
   containerEl.replaceChildren();
   if (readOnly || !options.length) return;
 
-  const trigger = createEl('button', {
-    className: 'btn btn--icon btn--primary', textContent: '+', title: t('common.add'),
+  const trigger = labelledButton('plus', 'common.add', 'btn btn--sm btn--primary');
+  trigger.addEventListener('click', async () => {
+    const ids = await openRelationPicker({
+      title: pickerTitle || t('common.add'),
+      items: options,
+      label,
+    });
+    if (ids && ids.length) onAdd(ids);
   });
-  const reset = () => containerEl.replaceChildren(trigger);
-  trigger.addEventListener('click', () => {
-    containerEl.replaceChildren(...pickerNodes(options, label, onAdd, reset));
-  });
-  reset();
+  containerEl.replaceChildren(trigger);
 }

@@ -1,0 +1,128 @@
+.list-filters {
+  margin-bottom: 1rem;
+}
+
+.list-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.list-toolbar__count {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-right: auto;
+}
+
+th.cell-select,
+td.cell-select {
+  width: 1%;
+  text-align: center;
+  padding-right: 0.25rem;
+}
+
+.pagination__size-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-left: auto;
+}
+
+.pagination__size {
+  padding: 0.25rem 0.4rem;
+}
+
+.list-filters__bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.list-filters__chip {
+  display: inline-flex;
+  align-items: stretch;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+  overflow: hidden;
+  font-size: 0.82rem;
+}
+
+.list-filters__chip-label,
+.list-filters__chip-remove {
+  border: 0;
+  background: transparent;
+  color: var(--color-text);
+  cursor: pointer;
+  font: inherit;
+  padding: 0.35rem 0.6rem;
+  transition: background-color var(--transition);
+}
+
+.list-filters__chip-label:hover {
+  background: var(--color-bg);
+}
+
+.list-filters__chip-remove {
+  border-left: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  padding-inline: 0.5rem;
+}
+
+.list-filters__chip-remove:hover {
+  background: var(--color-danger);
+  color: #fff;
+}
+
+.list-filters__clear {
+  color: var(--color-text-muted);
+}
+
+.list-filters__editor {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  padding: 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+}
+
+.list-filters__control {
+  font: inherit;
+  color: var(--color-text);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 0.4rem 0.5rem;
+  min-width: 8rem;
+}
+
+.list-filters__control:focus-visible {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) 25%, transparent);
+}
+
+.list-filters__control:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.list-filters__range {
+  display: inline-flex;
+  gap: 0.35rem;
+}
+
+.list-filters__control--range {
+  min-width: 7rem;
+}
+
+.list-filters__hint {
+  color: var(--color-text-muted);
+  padding: 0 0.25rem;
+}

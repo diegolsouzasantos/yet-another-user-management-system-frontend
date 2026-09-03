@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="/assets/css/layout.css" />
   <link rel="stylesheet" href="/assets/css/sidebar.css" />
   <link rel="stylesheet" href="/assets/css/buttons.css" />
+  <link rel="stylesheet" href="/design-system/design-system.css" />
   <link rel="stylesheet" href="/assets/css/forms.css" />
   <link rel="stylesheet" href="/assets/css/table.css" />
   <link rel="stylesheet" href="/assets/css/toast.css" />
@@ -21,18 +22,38 @@
     <div class="app-main">
       <header class="navbar" id="navbar"></header>
       <main class="page">
-        <a href="/pages/users/users.html" data-i18n="common.back"></a>
+        <div id="detail-back"></div>
         <h1 id="detail-title"></h1>
         <p id="detail-sub" class="detail-empty"></p>
+
+        <section class="detail-section">
+          <h2 data-i18n="users.overview"></h2>
+          <dl class="detail-meta" id="detail-meta"></dl>
+        </section>
+
+        <section class="detail-section" id="owner-section" hidden>
+          <h2 data-i18n="users.transferOwnership"></h2>
+          <div class="relation-add" id="owner-transfer"></div>
+        </section>
+
         <section class="detail-section">
           <h2 data-i18n="users.groups"></h2>
-          <ul class="relation-list" id="groups-list"></ul>
           <div class="relation-add" id="groups-add"></div>
+          <ul class="relation-list" id="groups-list"></ul>
         </section>
+
         <section class="detail-section">
           <h2 data-i18n="users.permissions"></h2>
-          <ul class="relation-list" id="perms-list"></ul>
+          <p id="perms-note" class="detail-empty" hidden></p>
           <div class="relation-add" id="perms-add"></div>
+          <table class="detail-table">
+            <thead><tr>
+              <th data-i18n="users.permission"></th>
+              <th data-i18n="users.permissionsSource"></th>
+              <th></th>
+            </tr></thead>
+            <tbody id="perms-body"></tbody>
+          </table>
         </section>
       </main>
     </div>
