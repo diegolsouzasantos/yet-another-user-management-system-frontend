@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>yaUMS — Group</title>
+  <title>yaUMS — Permission</title>
   <link rel="stylesheet" href="/assets/css/base.css" />
   <link rel="stylesheet" href="/assets/css/layout.css" />
   <link rel="stylesheet" href="/assets/css/sidebar.css" />
@@ -23,32 +23,17 @@
       <header class="navbar" id="navbar"></header>
       <main class="page">
         <div class="page-header">
-          <a href="/pages/groups/groups.html" class="btn btn--sm" id="detail-back" data-i18n="common.back"></a>
-          <div class="detail-actions" id="detail-actions"></div>
+          <a href="/pages/permissions/permissions.html" class="btn btn--sm" id="detail-back" data-i18n="common.back"></a>
         </div>
         <h1 id="detail-title"></h1>
         <p id="detail-sub" class="detail-empty"></p>
         <section class="detail-section">
-          <h2 data-i18n="groups.members"></h2>
-          <div class="relation-add" id="users-add"></div>
-          <ul class="relation-list" id="users-list"></ul>
-        </section>
-        <section class="detail-section">
-          <h2 data-i18n="groups.permissions"></h2>
-          <div class="relation-add" id="perms-add"></div>
-          <ul class="relation-list" id="perms-list"></ul>
+          <h2 data-i18n="common.details"></h2>
+          <dl class="detail-meta" id="detail-meta"></dl>
         </section>
       </main>
     </div>
   </div>
-  <dialog id="group-dialog">
-    <form id="group-form" method="dialog">
-      <div class="form-field"><label data-i18n="groups.name"></label><input name="name" required /></div>
-      <div class="form-field"><label data-i18n="groups.description"></label><input name="description" /></div>
-      <button type="submit" class="btn btn--primary" data-i18n="common.save"></button>
-      <button type="button" id="cancel-btn" class="btn" data-i18n="common.cancel"></button>
-    </form>
-  </dialog>
-  <script type="module" src="./group-detail.js"></script>
+  <script type="module" src="./permission-detail.js"></script>
 </body>
 </html>

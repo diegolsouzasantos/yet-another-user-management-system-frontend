@@ -39,9 +39,11 @@ export const AUDIT_FILTER_FIELDS = [
   { field: 'createdAt', labelKey: 'auditLogs.date', type: 'date' },
 ];
 
-function buildRow(log) {
+function buildRow(log, { selectionCellFor } = {}) {
   const actorLabel = log.actor ? `${log.actor.firstName} ${log.actor.lastName}` : '';
+  const selectionCell = selectionCellFor && selectionCellFor(log);
   return createEl('tr', {}, [
+    ...(selectionCell ? [selectionCell] : []),
     createEl('td', { textContent: actorLabel }),
     createEl('td', { textContent: `${tData('auditEntities', log.entityType)} (${log.entityId})` }),
     createEl('td', { textContent: tData('auditActions', log.action) }),
@@ -52,6 +54,6 @@ function buildRow(log) {
   ]);
 }
 
-export function renderAuditLogsTable(tbodyEl, logs) {
-  tbodyEl.replaceChildren(...logs.map(buildRow));
+export function renderAuditLogsTable(tbodyEl, logs, extra) {
+  tbodyEl.replaceChildren(...logs.map((log) => buildRow(log, extra)));
 }

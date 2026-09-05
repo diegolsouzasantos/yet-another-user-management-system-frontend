@@ -25,7 +25,10 @@
     "updated": "Updated",
     "deleted": "Deleted",
     "removed": "Removed",
-    "added": "Added"
+    "added": "Added",
+    "unexpectedError": "Something went wrong.",
+    "details": "Details",
+    "noPermission": "You don't have permission for this action."
   },
   "list": {
     "perPage": "per page",
@@ -144,7 +147,6 @@
     "permissions": "Permissions",
     "permission": "Permission",
     "permissionsSource": "Source",
-    "roleGrantsAll": "This role grants every permission.",
     "updatedAt": "Updated",
     "deletedAt": "Deleted",
     "confirmDelete": "Delete this user?",

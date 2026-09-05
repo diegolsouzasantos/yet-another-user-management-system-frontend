@@ -1,9 +1,6 @@
 import { isAuthenticated, setActor, clearSession } from './session.js';
 import { me } from '../api/auth.api.js';
-
-function hasPermission(actor, permission) {
-  return actor.grantsAll || actor.permissions.includes(permission);
-}
+import { hasPermission } from './permissions.js';
 
 export async function requireSession(permission) {
   if (!isAuthenticated()) {

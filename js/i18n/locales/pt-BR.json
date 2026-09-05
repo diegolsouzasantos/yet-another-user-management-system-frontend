@@ -25,7 +25,10 @@
     "updated": "Atualizado",
     "deleted": "Excluído",
     "removed": "Removido",
-    "added": "Adicionado"
+    "added": "Adicionado",
+    "unexpectedError": "Algo deu errado.",
+    "details": "Detalhes",
+    "noPermission": "Você não tem permissão para esta ação."
   },
   "list": {
     "perPage": "por página",
@@ -144,7 +147,6 @@
     "permissions": "Permissões",
     "permission": "Permissão",
     "permissionsSource": "Origem",
-    "roleGrantsAll": "Este cargo concede todas as permissões.",
     "updatedAt": "Atualizado em",
     "deletedAt": "Excluído em",
     "confirmDelete": "Excluir este usuário?",

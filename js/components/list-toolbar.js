@@ -3,7 +3,7 @@ import { t } from '../i18n/i18n.js';
 import { iconButton } from './action-buttons.js';
 
 export function createListToolbar({
-  el, canDelete, onExport, onDeleteSelected,
+  el, canDelete, deleteEnabled = true, onExport, onDeleteSelected,
 }) {
   let count = 0;
 
@@ -20,7 +20,8 @@ export function createListToolbar({
       const deleteBtn = iconButton('trash', 'list.deleteSelected', {
         className: 'btn btn--sm btn--danger', onClick: onDeleteSelected,
       });
-      deleteBtn.disabled = count === 0;
+      deleteBtn.disabled = count === 0 || !deleteEnabled;
+      if (!deleteEnabled) deleteBtn.title = t('common.noPermission');
       children.push(deleteBtn);
     }
 

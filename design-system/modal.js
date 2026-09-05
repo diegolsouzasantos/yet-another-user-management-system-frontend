@@ -8,12 +8,14 @@ export function openModal({
   title, message, content, confirmLabel = 'OK', cancelLabel = 'Cancel', variant = 'primary', wide = false,
 }) {
   return new Promise((resolve) => {
+    const previouslyFocused = document.activeElement;
     let settled = false;
     const finish = (result) => {
       if (settled) return;
       settled = true;
       dialog.close();
       dialog.remove();
+      if (previouslyFocused && typeof previouslyFocused.focus === 'function') previouslyFocused.focus();
       resolve(result);
     };
 

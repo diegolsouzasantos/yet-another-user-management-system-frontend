@@ -9,14 +9,19 @@ function labelledButton(iconName, labelKey, className) {
   return button;
 }
 
-export function renderRelationList(listEl, items, { label, onRemove, readOnly }) {
+export function renderRelationList(listEl, items, {
+  label, onRemove, readOnly, href,
+}) {
   if (!items.length) {
     listEl.replaceChildren(createEl('li', { className: 'detail-empty', textContent: t('common.noResults') }));
     return;
   }
 
   listEl.replaceChildren(...items.map((item) => {
-    const row = createEl('li', {}, [createEl('span', { textContent: label(item) })]);
+    const labelNode = href
+      ? createEl('a', { href: href(item), textContent: label(item) })
+      : createEl('span', { textContent: label(item) });
+    const row = createEl('li', {}, [labelNode]);
     if (!readOnly) {
       const button = labelledButton('trash', 'common.remove', 'btn btn--sm btn--danger');
       button.addEventListener('click', () => onRemove(item));

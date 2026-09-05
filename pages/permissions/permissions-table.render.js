@@ -17,8 +17,13 @@ export const PERMISSION_FILTER_FIELDS = [
 ];
 
 function buildRow(permission) {
+  const link = createEl('a', {
+    href: `/pages/permissions/permission-detail.html?id=${permission.id}`,
+    textContent: tData('resources', permission.resource),
+  });
+
   return createEl('tr', {}, [
-    createEl('td', { textContent: tData('resources', permission.resource) }),
+    createEl('td', {}, [link]),
     createEl('td', { textContent: tData('actions', permission.action) }),
     createEl('td', { textContent: permission.description || '' }),
     createEl('td', { textContent: formatDateOnly(permission.createdAt) }),

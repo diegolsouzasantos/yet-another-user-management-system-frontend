@@ -17,7 +17,7 @@ export function createSortableList({
   headEl, pagingEl, filtersEl, toolbarEl,
   columns, filterFields, filterOptions,
   defaultField, defaultDir, fetchPage, renderRows,
-  selectable = false, canDelete = false, resourceBasePath, idOf = (row) => row.id,
+  selectable = false, canDelete = false, deleteEnabled = true, resourceBasePath, idOf = (row) => row.id,
 }) {
   const initial = readListState();
   const sort = createSortState(initial.sort || defaultField, initial.order || defaultDir || 'asc');
@@ -41,7 +41,7 @@ export function createSortableList({
 
   const toolbar = selectable && toolbarEl
     ? createListToolbar({
-      el: toolbarEl, canDelete, onExport: runExport, onDeleteSelected: runBulkDelete,
+      el: toolbarEl, canDelete, deleteEnabled, onExport: runExport, onDeleteSelected: runBulkDelete,
     })
     : null;
 
@@ -64,25 +64,35 @@ export function createSortableList({
     syncAndLoad();
   }
 
-  function paintSelection() {
-    if (!selection) return;
-    const pageIds = rows.map(idOf);
-    headEl.querySelector('.cell-select')?.remove();
-    headEl.prepend(selectAllHeader(pageIds, selection, paintSelection));
-    [...document.querySelectorAll('tbody tr')].forEach((tr, index) => {
-      tr.querySelector('.cell-select')?.remove();
-      if (rows[index]) tr.prepend(selectionCell(idOf(rows[index]), selection, paintSelection));
-    });
+  // A list is selectable by receiving these two hooks, not by having its
+  // rendered markup patched from the outside after the fact.
+  function selectionCellFor(row) {
+    if (!selection) return null;
+    return selectionCell(idOf(row), selection, repaintHeaderOnly);
+  }
+
+  function selectionHeaderCell() {
+    if (!selection) return null;
+    return selectAllHeader(rows.map(idOf), selection, repaintAll);
+  }
+
+  function repaintHeaderOnly() {
+    renderTableHead(headEl, columns, sort, onSort, selectionHeaderCell());
+  }
+
+  function repaintAll() {
+    repaintHeaderOnly();
+    renderRows(rows, { selectionCellFor });
   }
 
   async function load() {
-    renderTableHead(headEl, columns, sort, onSort);
+    renderTableHead(headEl, columns, sort, onSort, selectionHeaderCell());
     if (filterUI) filterUI.render(filters);
 
     const result = await withLoading(fetchPage(currentParams()));
     rows = result.rows;
-    renderRows(rows);
-    paintSelection();
+    repaintHeaderOnly();
+    renderRows(rows, { selectionCellFor });
 
     renderPagination(pagingEl, result.meta, (next) => { page = next; syncAndLoad(); }, {
       value: limit,

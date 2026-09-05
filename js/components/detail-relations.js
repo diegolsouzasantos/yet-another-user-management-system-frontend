@@ -20,7 +20,7 @@ export async function confirmRemoval(name) {
 }
 
 export function wireRelation({
-  listEl, addEl, owned, catalog, label, add, remove, readOnly, reload, addTitleKey,
+  listEl, addEl, owned, catalog, label, add, remove, readOnly, reload, addTitleKey, href,
 }) {
   const run = async (promise, messageKey) => {
     try {
@@ -35,6 +35,7 @@ export function wireRelation({
   renderRelationList(listEl, owned, {
     label,
     readOnly,
+    href,
     onRemove: async (item) => {
       if (await confirmRemoval(label(item))) run(remove(item.id), 'common.removed');
     },

@@ -4,7 +4,7 @@ import { createSortableList } from '../../js/components/sortable-list.js';
 import { listAuditLogs } from '../../js/api/audit-logs.api.js';
 import { renderAuditLogsTable, AUDIT_COLUMNS, AUDIT_FILTER_FIELDS } from './audit-logs-table.render.js';
 
-const renderRows = (rows) => renderAuditLogsTable(document.getElementById('audit-logs-table-body'), rows);
+const renderRows = (rows, extra) => renderAuditLogsTable(document.getElementById('audit-logs-table-body'), rows, extra);
 
 async function init() {
   const actor = await mountShell('/pages/audit-logs/audit-logs.html', 'audit-logs:read');

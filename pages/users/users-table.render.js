@@ -24,13 +24,18 @@ export const USER_FILTER_FIELDS = [
   { field: 'createdAt', labelKey: 'common.createdAt', type: 'date' },
 ];
 
-function buildRow(user, { onEdit, onDelete }) {
+function buildRow(user, {
+  onEdit, onDelete, canEdit = true, canDeleteRow = true, selectionCellFor,
+}) {
   const link = createEl('a', {
     href: `/pages/users/user-detail.html?id=${user.id}`,
     textContent: `${user.firstName} ${user.lastName}`,
   });
 
+  const selectionCell = selectionCellFor && selectionCellFor(user);
+
   return createEl('tr', {}, [
+    ...(selectionCell ? [selectionCell] : []),
     createEl('td', {}, [link]),
     createEl('td', { textContent: user.email }),
     createEl('td', { textContent: tData('systemRoles', user.roleName) }),
@@ -38,8 +43,12 @@ function buildRow(user, { onEdit, onDelete }) {
     createEl('td', { textContent: formatDateOnly(user.createdAt) }),
     createEl('td', { textContent: formatDateOnly(user.updatedAt) }),
     rowActionsCell([
-      { labelKey: 'common.edit', icon: 'pencil', onSelect: () => onEdit(user) },
-      { labelKey: 'common.delete', icon: 'trash', variant: 'danger', onSelect: () => onDelete(user) },
+      {
+        labelKey: 'common.edit', icon: 'pencil', onSelect: () => onEdit(user), disabled: !canEdit,
+      },
+      {
+        labelKey: 'common.delete', icon: 'trash', variant: 'danger', onSelect: () => onDelete(user), disabled: !canDeleteRow,
+      },
     ]),
   ]);
 }

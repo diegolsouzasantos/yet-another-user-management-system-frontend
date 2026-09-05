@@ -19,7 +19,9 @@ export const ROLE_FILTER_FIELDS = [
   { field: 'createdAt', labelKey: 'common.createdAt', type: 'date' },
 ];
 
-function buildRow(role, { onEdit, onDelete }) {
+function buildRow(role, {
+  onEdit, onDelete, canEdit = true, canDeleteRow = true, selectionCellFor,
+}) {
   const link = createEl('a', {
     href: `/pages/roles/role-detail.html?id=${role.id}`,
     textContent: tData('systemRoles', role.name),
@@ -30,11 +32,18 @@ function buildRow(role, { onEdit, onDelete }) {
       createEl('span', { className: 'detail-empty', textContent: t('roles.system') }),
     ])
     : rowActionsCell([
-      { labelKey: 'common.edit', icon: 'pencil', onSelect: () => onEdit(role) },
-      { labelKey: 'common.delete', icon: 'trash', variant: 'danger', onSelect: () => onDelete(role) },
+      {
+        labelKey: 'common.edit', icon: 'pencil', onSelect: () => onEdit(role), disabled: !canEdit,
+      },
+      {
+        labelKey: 'common.delete', icon: 'trash', variant: 'danger', onSelect: () => onDelete(role), disabled: !canDeleteRow,
+      },
     ]);
 
+  const selectionCell = selectionCellFor && selectionCellFor(role);
+
   return createEl('tr', {}, [
+    ...(selectionCell ? [selectionCell] : []),
     createEl('td', {}, [link]),
     createEl('td', { textContent: role.description || '' }),
     createEl('td', { textContent: formatDateOnly(role.createdAt) }),

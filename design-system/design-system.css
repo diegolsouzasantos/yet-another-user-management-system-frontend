@@ -93,6 +93,15 @@
   background: color-mix(in srgb, var(--color-danger) 12%, transparent);
 }
 
+.ds-menu__item:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.ds-menu__item:disabled:hover {
+  background: transparent;
+}
+
 .ds-menu__sep {
   height: 1px;
   background: var(--color-border);

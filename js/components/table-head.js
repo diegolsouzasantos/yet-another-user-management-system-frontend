@@ -20,7 +20,8 @@ function buildHeader(column, sort, onSort) {
   return th;
 }
 
-export function renderTableHead(rowEl, columns, sort = {}, onSort = () => {}) {
+export function renderTableHead(rowEl, columns, sort = {}, onSort = () => {}, leadingCell = null) {
   const cells = columns.map((column) => (typeof column === 'string' ? { key: column } : column));
-  rowEl.replaceChildren(...cells.map((column) => buildHeader(column, sort, onSort)));
+  const headerCells = cells.map((column) => buildHeader(column, sort, onSort));
+  rowEl.replaceChildren(...(leadingCell ? [leadingCell, ...headerCells] : headerCells));
 }

@@ -22,7 +22,10 @@
     <div class="app-main">
       <header class="navbar" id="navbar"></header>
       <main class="page">
-        <a href="/pages/roles/roles.html" data-i18n="common.back"></a>
+        <div class="page-header">
+          <a href="/pages/roles/roles.html" class="btn btn--sm" id="detail-back" data-i18n="common.back"></a>
+          <div class="detail-actions" id="detail-actions"></div>
+        </div>
         <h1 id="detail-title"></h1>
         <p id="detail-sub" class="detail-empty"></p>
         <section class="detail-section">
@@ -33,6 +36,14 @@
       </main>
     </div>
   </div>
+  <dialog id="role-dialog">
+    <form id="role-form" method="dialog">
+      <div class="form-field"><label data-i18n="roles.name"></label><input name="name" required /></div>
+      <div class="form-field"><label data-i18n="roles.description"></label><input name="description" /></div>
+      <button type="submit" class="btn btn--primary" data-i18n="common.save"></button>
+      <button type="button" id="cancel-btn" class="btn" data-i18n="common.cancel"></button>
+    </form>
+  </dialog>
   <script type="module" src="./role-detail.js"></script>
 </body>
 </html>

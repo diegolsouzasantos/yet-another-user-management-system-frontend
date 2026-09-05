@@ -2,12 +2,10 @@
   margin-top: 1.5rem;
 }
 
-a.detail-back {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.3rem;
-  font-size: 0.85rem;
-  margin-bottom: 0.75rem;
+.detail-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex: none;
 }
 
 .detail-meta {

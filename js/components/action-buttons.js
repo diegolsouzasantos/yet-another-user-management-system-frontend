@@ -11,6 +11,14 @@ export function iconButton(iconName, labelKey, { className = 'btn', onClick, tit
   return button;
 }
 
+export function setControlAvailability(buttonOrId, available) {
+  const button = typeof buttonOrId === 'string' ? document.getElementById(buttonOrId) : buttonOrId;
+  if (!button) return button;
+  button.disabled = !available;
+  button.title = available ? '' : t('common.noPermission');
+  return button;
+}
+
 export function decorateButton(buttonOrId, iconName) {
   const button = typeof buttonOrId === 'string' ? document.getElementById(buttonOrId) : buttonOrId;
   if (button && !button.querySelector('.ds-icon')) {
@@ -30,6 +38,8 @@ export function rowActionsCell(actions) {
     icon: action.icon,
     variant: action.variant,
     onSelect: action.onSelect,
+    disabled: action.disabled,
+    disabledTitle: action.disabled ? t('common.noPermission') : undefined,
   })));
 
   return createEl('td', { className: 'cell-actions' }, [trigger]);

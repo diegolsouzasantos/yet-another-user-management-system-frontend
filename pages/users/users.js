@@ -2,7 +2,8 @@ import { mountShell } from '../../js/components/shell.js';
 import { applyI18n } from '../../js/i18n/i18n.js';
 import { createSortableList } from '../../js/components/sortable-list.js';
 import { confirmAndDelete } from '../../js/utils/confirm-delete.js';
-import { decorateButton } from '../../js/components/action-buttons.js';
+import { decorateButton, setControlAvailability } from '../../js/components/action-buttons.js';
+import { hasPermission } from '../../js/auth/permissions.js';
 import { listUsers, removeUser } from '../../js/api/users.api.js';
 import { listRoles } from '../../js/api/roles.api.js';
 import { listGroups } from '../../js/api/groups.api.js';
@@ -13,12 +14,14 @@ import { initUserDialog } from './users-dialog.js';
 
 let list;
 let userDialog;
+let canEdit = true;
+let canDeleteRow = true;
 
 const onDelete = (user) => confirmAndDelete('users.confirmDelete', () => removeUser(user.id))
   .then((done) => done && list.reload());
 
-const renderRows = (rows) => renderUsersTable(document.getElementById('users-table-body'), rows, {
-  onEdit: (user) => userDialog.open(user), onDelete,
+const renderRows = (rows, extra) => renderUsersTable(document.getElementById('users-table-body'), rows, {
+  onEdit: (user) => userDialog.open(user), onDelete, canEdit, canDeleteRow, ...extra,
 });
 
 async function init() {
@@ -27,6 +30,10 @@ async function init() {
 
   applyI18n();
   decorateButton('create-btn', 'plus');
+
+  canEdit = hasPermission(actor, 'users:update');
+  canDeleteRow = hasPermission(actor, 'users:delete');
+  setControlAvailability('create-btn', hasPermission(actor, 'users:create'));
 
   const [{ roles }, { groups }] = await Promise.all([
     listRoles({ limit: 100 }),
@@ -42,6 +49,7 @@ async function init() {
     toolbarEl: document.getElementById('list-toolbar'),
     selectable: true,
     canDelete: true,
+    deleteEnabled: canDeleteRow,
     resourceBasePath: '/users',
     columns: USER_COLUMNS,
     filterFields: USER_FILTER_FIELDS,

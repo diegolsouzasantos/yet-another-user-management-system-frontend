@@ -25,7 +25,10 @@
     "updated": "Actualizado",
     "deleted": "Eliminado",
     "removed": "Quitado",
-    "added": "Añadido"
+    "added": "Añadido",
+    "unexpectedError": "Algo salió mal.",
+    "details": "Detalles",
+    "noPermission": "No tienes permiso para esta acción."
   },
   "list": {
     "perPage": "por página",
@@ -144,7 +147,6 @@
     "permissions": "Permisos",
     "permission": "Permiso",
     "permissionsSource": "Origen",
-    "roleGrantsAll": "Este rol concede todos los permisos.",
     "updatedAt": "Actualizado",
     "deletedAt": "Eliminado",
     "confirmDelete": "¿Eliminar este usuario?",

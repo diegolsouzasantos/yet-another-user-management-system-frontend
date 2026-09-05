@@ -18,11 +18,14 @@ export function initCrudDialog({
     dialog().showModal();
   }
 
-  document.getElementById(createBtnId).addEventListener('click', () => {
-    editingId = null;
-    fill(form(), null);
-    openDialog('create');
-  });
+  const createBtn = createBtnId ? document.getElementById(createBtnId) : null;
+  if (createBtn) {
+    createBtn.addEventListener('click', () => {
+      editingId = null;
+      fill(form(), null);
+      openDialog('create');
+    });
+  }
   document.getElementById(cancelBtnId).addEventListener('click', () => dialog().close());
 
   form().addEventListener('submit', async (event) => {
